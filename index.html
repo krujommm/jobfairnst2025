@@ -1,0 +1,399 @@
+
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ค้นหาเกียรติบัตร JOB FAIR 2025 @ นครศรีธรรมราช</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#E83E8C',
+                        secondary: '#FF9EC4',
+                        light: '#FFE5F1',
+                    },
+                    fontFamily: {
+                        prompt: ['Prompt', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: #FFF5F9;
+        }
+        .loader {
+            border-top-color: #E83E8C;
+            -webkit-animation: spinner 1.5s linear infinite;
+            animation: spinner 1.5s linear infinite;
+        }
+        @-webkit-keyframes spinner {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+        @keyframes spinner {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .certificate-card {
+            transition: all 0.3s ease;
+        }
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(232, 62, 140, 0.3);
+        }
+        .search-input:focus {
+            box-shadow: 0 0 0 3px rgba(232, 62, 140, 0.3);
+        }
+        .download-btn {
+            transition: all 0.2s ease;
+        }
+        .download-btn:hover {
+            transform: translateY(-2px);
+        }
+        .download-btn:active {
+            transform: translateY(0);
+        }
+        
+        /* Magnifying Glass Animation */
+        .magnifying-glass {
+            position: relative;
+            transform-origin: 75% 75%;
+            animation: magnify 3s ease-in-out infinite;
+        }
+        
+        .magnifying-glass .glass {
+            fill: rgba(232, 62, 140, 0.15);
+            stroke: #E83E8C;
+            stroke-width: 5;
+            transition: all 0.3s ease;
+        }
+        
+        .magnifying-glass .handle {
+            fill: none;
+            stroke: #E83E8C;
+            stroke-width: 6;
+            stroke-linecap: round;
+        }
+        
+        .magnifying-glass .shine {
+            fill: white;
+            opacity: 0.3;
+            animation: shine 3s ease-in-out infinite;
+        }
+        
+        .magnifying-glass .search-particle {
+            fill: #E83E8C;
+            opacity: 0;
+            transform-origin: center;
+        }
+        
+        .search-particle-1 {
+            animation: particle 3s ease-in-out infinite;
+        }
+        
+        .search-particle-2 {
+            animation: particle 3s ease-in-out 0.2s infinite;
+        }
+        
+        .search-particle-3 {
+            animation: particle 3s ease-in-out 0.4s infinite;
+        }
+        
+        @keyframes magnify {
+            0%, 100% {
+                transform: scale(1) rotate(0deg);
+            }
+            40% {
+                transform: scale(1.1) rotate(-5deg);
+            }
+            60% {
+                transform: scale(1.15) rotate(3deg);
+            }
+            80% {
+                transform: scale(1.05) rotate(-2deg);
+            }
+        }
+        
+        @keyframes shine {
+            0%, 100% {
+                opacity: 0.3;
+                transform: translateX(0) translateY(0);
+            }
+            50% {
+                opacity: 0.5;
+                transform: translateX(-3px) translateY(-3px);
+            }
+        }
+        
+        @keyframes particle {
+            0%, 100% {
+                opacity: 0;
+                transform: translate(0, 0) scale(0);
+            }
+            40% {
+                opacity: 0.8;
+                transform: translate(15px, -15px) scale(1);
+            }
+            60% {
+                opacity: 0.3;
+                transform: translate(30px, -30px) scale(0.8);
+            }
+            80% {
+                opacity: 0;
+                transform: translate(45px, -45px) scale(0.5);
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- Header with Animated Magnifying Glass Logo -->
+        <div class="text-center mb-10">
+            <div class="flex justify-center mb-4">
+                <svg class="magnifying-glass w-24 h-24" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Handle -->
+                    <path class="handle" d="M125,125 L170,170" />
+                    
+                    <!-- Glass -->
+                    <circle class="glass" cx="80" cy="80" r="50" />
+                    
+                    <!-- Shine effect -->
+                    <path class="shine" d="M55,55 Q65,65 75,55 Q85,45 75,35 Q65,25 55,35 Q45,45 55,55 Z" />
+                    
+                    <!-- Search particles -->
+                    <circle class="search-particle search-particle-1" cx="125" cy="125" r="5" />
+                    <circle class="search-particle search-particle-2" cx="125" cy="125" r="4" />
+                    <circle class="search-particle search-particle-3" cx="125" cy="125" r="3" />
+                </svg>
+            </div>
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">ค้นหาเกียรติบัตร</h1>
+            <h2 class="text-2xl font-medium text-primary mb-4">JOB FAIR 2025 @ นครศรีธรรมราช</h2>
+            <div class="h-1 w-32 bg-primary mx-auto rounded-full"></div>
+        </div>
+
+        <!-- Search Form -->
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-8 border-2 border-light">
+            <form id="searchForm" class="flex flex-col md:flex-row gap-4">
+                <div class="flex-1">
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">กรุณากรอกเบอร์โทรศัพท์</label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone" 
+                        class="search-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-primary" 
+                        placeholder="เช่น 0812345678"
+                        required
+                    >
+                </div>
+                <div class="flex items-end">
+                    <button 
+                        type="submit" 
+                        class="w-full md:w-auto px-6 py-3 bg-primary hover:bg-pink-600 text-white font-medium rounded-lg transition duration-300 flex items-center justify-center"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                        </svg>
+                        ค้นหา
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loading" class="hidden flex justify-center my-8">
+            <div class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12"></div>
+        </div>
+
+        <!-- Error Message -->
+        <div id="errorMessage" class="hidden bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-8 rounded-lg">
+            <div class="flex">
+                <div class="flex-shrink-0">
+                    <svg class="h-5 w-5 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <div class="ml-3">
+                    <p id="errorText" class="text-sm"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Container -->
+        <div id="resultsContainer" class="hidden">
+            <div class="mb-6 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <h3 class="text-xl font-semibold text-gray-800">พบเกียรติบัตรทั้งหมด <span id="certificateCount" class="text-primary">0</span> รายการ</h3>
+            </div>
+            
+            <!-- Results List -->
+            <div id="certificatesList" class="space-y-4">
+                <!-- Certificate items will be added here dynamically -->
+            </div>
+        </div>
+
+        <!-- No Results Message -->
+        <div id="noResults" class="hidden text-center py-8">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-gray-400 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h3 class="text-xl font-medium text-gray-700 mb-2">ไม่พบข้อมูล</h3>
+            <p class="text-gray-500">ไม่พบเกียรติบัตรที่ตรงกับเบอร์โทรศัพท์ที่ค้นหา</p>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-12 text-center text-gray-600 text-sm">
+            <p>© 2025 JOB FAIR นครศรีธรรมราช. All rights reserved.</p>
+            <p class="mt-1 text-primary font-medium">Contributed by WATCHARAPONG ROBKOB</p>
+        </footer>
+    </div>
+
+    <!-- Certificate Item Template -->
+    <template id="certificateTemplate">
+        <div class="bg-white rounded-xl shadow-lg p-6 border-2 border-light certificate-card">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div class="flex items-start">
+                    <div class="bg-light p-3 rounded-full mr-4 flex-shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 certificate-name">-</h3>
+                        <div class="flex items-center mt-1">
+                            <span class="bg-secondary text-primary text-xs font-medium px-2.5 py-0.5 rounded-full certificate-type">-</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-auto w-full">
+                    <a 
+                        href="#" 
+                        target="_blank" 
+                        class="download-btn certificate-download block w-full bg-primary hover:bg-pink-600 text-white text-center font-medium py-3 px-6 rounded-lg transition duration-300"
+                    >
+                        <div class="flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                            ดาวน์โหลด
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchForm = document.getElementById('searchForm');
+            const loading = document.getElementById('loading');
+            const errorMessage = document.getElementById('errorMessage');
+            const errorText = document.getElementById('errorText');
+            const resultsContainer = document.getElementById('resultsContainer');
+            const noResults = document.getElementById('noResults');
+            const certificatesList = document.getElementById('certificatesList');
+            const certificateCount = document.getElementById('certificateCount');
+            const certificateTemplate = document.getElementById('certificateTemplate');
+
+            searchForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get phone number
+                const phoneNumber = document.getElementById('phone').value.trim();
+                
+                if (!phoneNumber) {
+                    showError('กรุณากรอกเบอร์โทรศัพท์');
+                    return;
+                }
+                
+                // Hide previous results and errors
+                resultsContainer.classList.add('hidden');
+                noResults.classList.add('hidden');
+                errorMessage.classList.add('hidden');
+                
+                // Clear previous results
+                certificatesList.innerHTML = '';
+                
+                // Show loading
+                loading.classList.remove('hidden');
+                
+                // Make API request
+                const apiUrl = 'https://script.google.com/macros/s/AKfycbxCpV0HkXwemGB47Yt5wYFXZgFU5e_3WV43-2J109MAJNIFf-WuE4ky3DK1kumim70g/exec';
+                
+                fetch(`${apiUrl}?phone=${encodeURIComponent(phoneNumber)}`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('เกิดข้อผิดพลาดในการเชื่อมต่อ');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Hide loading
+                        loading.classList.add('hidden');
+                        
+                        if (data.success && data.found && data.results && data.results.length > 0) {
+                            // Update certificate count
+                            certificateCount.textContent = data.results.length;
+                            
+                            // Create certificate items
+                            data.results.forEach(result => {
+                                const certificateItem = createCertificateItem(result);
+                                certificatesList.appendChild(certificateItem);
+                            });
+                            
+                            // Show results
+                            resultsContainer.classList.remove('hidden');
+                            
+                            // Scroll to results
+                            resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        } else {
+                            // Show no results message
+                            noResults.classList.remove('hidden');
+                        }
+                    })
+                    .catch(error => {
+                        // Hide loading
+                        loading.classList.add('hidden');
+                        
+                        // Show error
+                        showError(error.message || 'เกิดข้อผิดพลาดในการค้นหาข้อมูล');
+                    });
+            });
+            
+            function createCertificateItem(data) {
+                const template = certificateTemplate.content.cloneNode(true);
+                
+                // Set certificate data
+                template.querySelector('.certificate-name').textContent = data.name || '-';
+                template.querySelector('.certificate-type').textContent = data.type || '-';
+                
+                const downloadBtn = template.querySelector('.certificate-download');
+                if (data.certificateUrl) {
+                    downloadBtn.href = data.certificateUrl;
+                } else {
+                    downloadBtn.href = '#';
+                    downloadBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                    downloadBtn.setAttribute('disabled', 'disabled');
+                }
+                
+                return template;
+            }
+            
+            function showError(message) {
+                errorText.textContent = message;
+                errorMessage.classList.remove('hidden');
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'95bbd036d12f8966',t:'MTc1MTkzODE5NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
